@@ -1,0 +1,199 @@
+body{
+    background-color: #fff;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.topmenu{
+    background-color: #FFB60F;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 3px;
+}
+.top-logo{
+    font-size: 24px;
+    color: #fff;
+    margin-left: 48px;
+}
+.online{
+    display: flex;
+    margin-right: 48x;
+    justify-content: center;
+}
+.online-msg{
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+.online-phone-number{
+    color: #2064c8;
+    font-size: 18px;
+}
+.top-right{
+    margin-right: 48px;
+    display: flex;
+}
+.carousel-inner{
+    margin-top: 36px;
+}
+.nav{
+    display: flex;
+    margin-top: 36px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+.nav ul li{
+    float: left;
+    width: 86px;
+    height: 36px;
+    
+}
+.nav ul li a {
+    display: block;
+    line-height: 36px;
+    text-decoration: none;
+    text-align: center;
+    color:#333;
+    
+}
+.active{
+    background-color: #49F;
+    border-radius: 2px;
+}
+.active a{
+    color: #fff !important;
+}
+.room-item{
+    height: 400px;
+    border: 1px solid #ccc;
+    margin-top: 36px;
+}
+.room-detail{
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    border-bottom: 1px solid #ccc;
+}
+.room-img{
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.room-name{
+    margin-top: 30px;
+    margin-left: 40px;
+}
+.room-config{
+    margin-left: 40px;
+}
+.room-price{
+    font-size: 48px;
+}
+.left{
+    display: flex;
+}
+.room-btn{
+    width: 100px;
+    height: 40px;
+}
+
+.room-imgshow{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.room-simg{
+    margin-top: 36px;
+}
+#hotel-msg{
+    margin-top: 36px;
+}
+.hotel-title{
+    font-size: 24px;
+}
+.hotel-item{
+    display: flex; 
+}
+.hotel-key{
+    margin-right: 6px;
+    width: 100px;
+    margin-top: 12px;
+}
+.hotel-value{
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    margin-top: 12px;
+}
+#location-msg{
+    margin-top: 36px;
+}
+.location-title{
+    font-size: 24px;
+}
+.foot{
+    display: flex;
+    margin-top: 160px;
+    margin-bottom: 32px;
+    justify-content: center;
+}
+.look{
+    display: flex;
+    align-items: center;
+    
+}
+.look a{
+    text-decoration: none;
+    margin-top: 14px;
+}
+.formb{
+    margin-top: 36px;
+    display: flex;
+}
+.form-img{
+    width: 240px;
+}
+.formbody{
+    display: flex;
+    margin-left: 48px;
+    flex-direction: column;
+}
+.title{
+    font-size: 18px;
+    color: #555;
+}
+.self-msg{
+    width: 400px;
+}
+.form-group{
+    display: flex;
+    width: 100%;
+}
+.control-label{
+    width: 40px;
+    margin-right: 12px;
+}
+.btngroup{
+    align-self:flex-end;
+    justify-content: flex-end;
+}
+.price{
+    margin-right: 24px;
+}
+.self-body{
+    margin-top: 24px;
+}
+.top-tel{
+    display: flex;
+}
+.user-tel{
+    margin-left: 24px;
+}
