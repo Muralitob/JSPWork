@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository-1.11.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+  <jpa:repositories base-package="projectmanager" repository-impl-postfix="Impl" 
+    entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManager">
+    <repository:include-filter type="regex" expression=".*Repository"/>
+  </jpa:repositories>
+
+  <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <!-- 数据源 -->
+    <property name="dataSource" ref="dataSource" />
+    <!-- 持久单元提供类 -->
+    <property name="persistenceProviderClass" value="org.hibernate.jpa.HibernatePersistenceProvider" />
+    <property name="loadTimeWeaver">
+      <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+    </property>
+    <!-- 扫描实体包 -->
+    <property name="packagesToScan" value="projectmanager"/>
+    <property name="jpaProperties">
+      <props>
+        <!--命名策略-->
+        <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+        <!--基本配置-->
+        <prop key="hibernate.dialect">${jpa.dialect}</prop>
+        <prop key="hibernate.show_sql">${jpa.showSql}</prop>
+        <prop key="hibernate.hbm2ddl.auto">${jpa.hbm2ddl.auto}</prop>
+        <prop key="hibernate.format_sql">${jpa.formatSql}</prop>
+        <prop key="hibernate.id.new_generator_mappings">false</prop>
+        
+        <!-- 二级缓存-->
+        <!-- <prop key="hibernate.cache.use_second_level_cache">true</prop> -->
+        <!-- 使用ehcache实现二级缓存 -->
+        <!-- <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop> -->
+        <!-- 使用@Cacheable标注的类才开启二级缓存 -->
+        <!-- <prop key="javax.persistence.sharedCache.mode">ENABLE_SELECTIVE</prop> -->
+        <!-- 查询缓存 -->
+        <!-- <prop key="hibernate.cache.use_query_cache">true</prop> -->
+        <!-- 开启缓存统计 -->
+        <!-- <prop key="hibernate.generate_statistics">true</prop> -->  
+      </props>
+    </property>
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean>
+  
+  <!-- 配置基于注解的事务 -->
+  <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+</beans>
