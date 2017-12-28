@@ -32,3 +32,18 @@ $(function(){
         });
         
 });
+
+function reserve(num){
+	$.ajax({
+		type:'POST',
+		url:"room/reserve/" + num ,
+		dataType:"json",
+		cache: false,
+		success: function(data){
+			console.log("success");
+		},
+		error:function(xhr,textStatus){
+			console.log("error");
+	    }
+	});
+}

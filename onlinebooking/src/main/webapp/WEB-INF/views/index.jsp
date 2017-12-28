@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
                 </div>
             </div>
             <div class="online-msg look">
-                <a href="#">查看订单</a>
+                <a href="bookform">查看订单</a>
             </div>
         </div>
     </div>
@@ -64,116 +65,38 @@
             </ul>
         </div>
         <!--房间信息开始-->
-        <div id="room-msg" name="room-msg">
+        <c:forEach items="${list }" var="item" varStatus="st">
+        <div name="room-msg">
             <div class="room-item">
                 <div class="room-detail">
                     <div class="left">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-img">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-img">
                         <div>
-                            <h2 class="room-name">商务大床房</h2>
+                            <h2 class="room-name">${item.desc }</h2>
                             <div class="room-config">
-                                房间面积 18-20m2
-                                |大床房 1.8米
-                                |楼层: 2-4层
+                               	房间面积 : ${item.area }平米
+                                | 床： ${item.bedType }
+                                | 楼层: ${item.floor }层
+                                | ${item.smoke eq 0 ? "禁止":"允许"}吸烟
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div class="room-price right">360000￥</div>
-                        <button type="button" class="btn btn-default room-btn">立即预定</button>
+                        <div class="room-price right">${item.price }￥</div>
+                        <button type="button" class="btn btn-default room-btn" onclick="reserve(${item.roomType})">立即预定</button>
                     </div>
                 </div>
                 <div class="room-show room-imgshow">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                </div>
-            </div>
-            <div class="room-item">
-                    <div class="room-detail">
-                        <div class="left">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-img">
-                            <div>
-                                <h2 class="room-name">商务大床房</h2>
-                                <div class="room-config">
-                                    房间面积 18-20m2
-                                    |大床房 1.8米
-                                    |楼层: 2-4层
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="room-price right">360000￥</div>
-                            <button type="button" class="btn btn-default room-btn">立即预定</button>
-                        </div>
-                    </div>
-                    <div class="room-show room-imgshow">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                            <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                    </div>
-            </div> 
-            <div class="room-item">
-                <div class="room-detail">
-                    <div class="left">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-img">
-                        <div>
-                            <h2 class="room-name">商务大床房</h2>
-                            <div class="room-config">
-                                房间面积 18-20m2
-                                |大床房 1.8米
-                                |楼层: 2-4层
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="room-price right">360000￥</div>
-                        <button type="button" class="btn btn-default room-btn">立即预定</button>
-                    </div>
-                </div>
-                <div class="room-show room-imgshow">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                </div>
-            </div>
-            <div class="room-item">
-                <div class="room-detail">
-                    <div class="left">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-img">
-                        <div>
-                            <h2 class="room-name">商务大床房</h2>
-                            <div class="room-config">
-                                房间面积 18-20m2
-                                |大床房 1.8米
-                                |楼层: 2-4层
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="room-price right">360000￥</div>
-                        <button type="button" class="btn btn-default room-btn">立即预定</button>
-                    </div>
-                </div>
-                <div class="room-show room-imgshow">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
-                        <img src="statics/assests/img/豪华大床房1.jpg" alt="" class="room-simg">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-simg">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-simg">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-simg">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-simg">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-simg">
+                        <img src="statics/assests/img/床${item.roomType }.jpg" alt="" class="room-simg">
                 </div>
             </div>
         </div>
+        </c:forEach>
         <!--酒店信息开始-->
         <div id="hotel-msg" name="hotel-msg">
             <div class="hotel-title">酒店信息</div>

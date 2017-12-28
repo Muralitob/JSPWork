@@ -3,12 +3,12 @@ package projectmanager.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import projectmanager.respository.PostRespository;
+import projectmanager.repository.PostRepository;
 
 @Service
 public class PostService {
 	
-	@Autowired
-	private PostRespository postRespository;
+/*	@Autowired
+	private PostRespository postRespository;*/
 
 }

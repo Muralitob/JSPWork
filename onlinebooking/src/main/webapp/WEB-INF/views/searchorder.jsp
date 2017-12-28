@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="online-msg look">
-                <a href="#">查看订单</a>
+                <a href="bookform">查看订单</a>
             </div>
         </div>
     </div>
@@ -39,5 +39,5 @@
     </div>
 </body>
 <script src="statics/js/jquery.js"></script>
- <script src="statics/js/myjs.js"></script>
+<script src="statics/js/myjs.js"></script>
 </html>
